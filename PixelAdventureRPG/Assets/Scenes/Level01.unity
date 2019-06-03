@@ -4193,10 +4193,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ligthsaber
       objectReference: {fileID: 0}
-    - target: {fileID: 110108886, guid: 10a7e25d722bdf94d91906924e57acfe, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 110108887, guid: 10a7e25d722bdf94d91906924e57acfe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4241,15 +4237,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 110108892, guid: 10a7e25d722bdf94d91906924e57acfe, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300004, guid: 1d2a149d9272f9745bf7afb08bdb2240,
-        type: 3}
-    - target: {fileID: 110108891, guid: 10a7e25d722bdf94d91906924e57acfe, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10a7e25d722bdf94d91906924e57acfe, type: 3}
 --- !u!1 &415311211
@@ -4267,7 +4254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &415311212
 Transform:
   m_ObjectHideFlags: 0
@@ -11388,7 +11375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1350770998
 Transform:
   m_ObjectHideFlags: 0

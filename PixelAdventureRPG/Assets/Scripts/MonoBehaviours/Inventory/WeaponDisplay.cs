@@ -7,4 +7,6 @@ public class WeaponDisplay : MonoBehaviour
 {
     public Image[] weaponSprites;
     public Text weaponText;
+    public Image weaponReload;
+    public Image weaponUsage;
 }

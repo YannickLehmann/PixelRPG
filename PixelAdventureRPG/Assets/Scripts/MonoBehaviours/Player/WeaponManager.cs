@@ -69,11 +69,19 @@ public class WeaponManager : MonoBehaviour
     public void UseWeapon()
     {
         weaponAmount--;
-        
+        StartCoroutine(AttaktimeDisplay());
+
+
         if (weaponAmount <= 0)
         {
-            Debug.Log(weaponAmount);
-            StartCoroutine(RoatateWeaponsCooldown());
+            if (weapons[1])
+            {
+                StartCoroutine(RoatateWeaponsCooldown());
+            }
+            else
+            {
+                weaponAmount = weapons[0].GetComponent<WeaponInterface>().mQuantity;
+            }
         }
         weaponDisplay.weaponText.text = weaponAmount.ToString();
 
@@ -96,6 +104,44 @@ public class WeaponManager : MonoBehaviour
         weaponDisplay.weaponText.text = weaponAmount.ToString();
     }
 
+    IEnumerator CooldownDisplay()
+    {
+        weaponDisplay.weaponReload.enabled = true;
+        weaponDisplay.weaponReload.fillAmount = 1;
+        float percentComplete = 0;
+        float duration = weapons[0].GetComponent<WeaponInterface>().mCooldown - weapons[0].GetComponent<WeaponInterface>().mAttackTime;
+
+        while (percentComplete <= 1.0f)
+        {
+            // Time.deltaTime is the time elapsed since the last frame was drawn
+            percentComplete += Time.deltaTime / duration;
+            weaponDisplay.weaponReload.fillAmount = 1 - percentComplete;
+
+            yield return null;
+        }
+        weaponDisplay.weaponReload.enabled = false;
+
+    }
+
+    IEnumerator AttaktimeDisplay()
+    {
+        weaponDisplay.weaponUsage.enabled = true;
+        weaponDisplay.weaponUsage.fillAmount = 1;
+        float percentComplete = 0;
+        float duration = weapons[0].GetComponent<WeaponInterface>().mAttackTime;
+
+        while (percentComplete <= 1.0f)
+        {
+            // Time.deltaTime is the time elapsed since the last frame was drawn
+            percentComplete += Time.deltaTime / duration;
+            weaponDisplay.weaponUsage.fillAmount = 1 - percentComplete;
+
+            yield return null;
+        }
+        weaponDisplay.weaponUsage.enabled = false;
+
+        StartCoroutine(CooldownDisplay());
+    }
 
     private IEnumerator RoatateWeaponsCooldown()
     {

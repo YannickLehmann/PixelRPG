@@ -15,8 +15,9 @@ MonoBehaviour:
   weaponNamme: PlayerShootingGun
   animController: {fileID: 9100000, guid: d857eb50e18a082418285cc43956b234, type: 2}
   sprite: {fileID: 21300000, guid: d8d286d2f4712ae40b3301ee69c2275e, type: 3}
-  cooldown: 0.51
+  cooldown: 2
   attakTime: 0.5
   damage: 1
+  rotation: {x: 0, y: 0, z: 0}
   quantity: 1
   weaponType: 3

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 110108887}
   - component: {fileID: 110108892}
   - component: {fileID: 110108891}
-  - component: {fileID: 110108890}
   - component: {fileID: 6810801266429302040}
   - component: {fileID: 110108889}
   - component: {fileID: 110108888}
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 44088829
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 1d2a149d9272f9745bf7afb08bdb2240, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 1d2a149d9272f9745bf7afb08bdb2240, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,26 +103,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &110108890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 110108886}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dd50e10438ace84b9f2cb828466eca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: bbb57d75feefec447acf32d3181814b4, type: 2}
-  animator: {fileID: 0}
-  useable: 1
-  attaking: 0
-  player: {fileID: 0}
-  movementController: {fileID: 0}
-  effectContainer: {fileID: 0}
-  weaponInterface: {fileID: 0}
 --- !u!114 &6810801266429302040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,8 +139,8 @@ BoxCollider2D:
   m_Offset: {x: 0.51, y: -0.005}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.43742052, y: 0.4853979}
-    oldSize: {x: 0.21875, y: 0.15625}
+    pivot: {x: 0.4322056, y: 0.5608411}
+    oldSize: {x: 0.21875, y: 0.09375}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

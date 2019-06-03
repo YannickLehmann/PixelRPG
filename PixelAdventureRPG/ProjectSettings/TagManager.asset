@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - CanBePickedUp
+  - VirtualCamera
+  - Weapon
+  - Ground
+  - RPGManager
+  - PlayerArm
+  - PlayerBody
+  - EffectContainer
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Blocking
+  - Consumables
+  - Enemies
+  - Ammo
+  - BlockedAmmo
+  - Weapon
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 339768649
+    locked: 0
+  - name: Objects
+    uniqueID: 2812842769
+    locked: 0
+  - name: Characters
+    uniqueID: 4094307067
+    locked: 0
+  - name: Shields
+    uniqueID: 3801583325
+    locked: 0
+  - name: Weapons
+    uniqueID: 44088829
+    locked: 0

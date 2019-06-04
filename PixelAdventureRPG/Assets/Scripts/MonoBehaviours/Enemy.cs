@@ -4,6 +4,7 @@ using UnityEngine;
 public class Enemy : Character
 {
     public float damageStrength;
+    private Animator anim;
 
     Coroutine damageCoroutine;
 
@@ -12,6 +13,7 @@ public class Enemy : Character
     private void OnEnable()
     {
         ResetCharacter();
+        anim = GetComponentInChildren<Animator>();
     }
 
     public override void ResetCharacter()
@@ -48,6 +50,8 @@ public class Enemy : Character
         if(collision.gameObject.CompareTag("Player"))
         {
             Player player = collision.gameObject.GetComponent<Player>();
+            Debug.Log("Trigger");
+            anim.SetTrigger("Attaking");
 
             // only call DamageCharacter on the player if we don't currently have a DamageCharacter() Coroutine running.
             if (damageCoroutine == null)

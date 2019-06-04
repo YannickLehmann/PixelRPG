@@ -87,7 +87,6 @@ public class Wander : MonoBehaviour
             if (rigidBodyToMove != null)
             {
                 animator.SetBool("isWalking", true);
-
                 Vector3 newPosition = Vector3.MoveTowards(rigidBodyToMove.position, endPosition, speed * Time.deltaTime);
                 rb2d.MovePosition(newPosition);
                 remainingDistance = (transform.position - endPosition).sqrMagnitude;

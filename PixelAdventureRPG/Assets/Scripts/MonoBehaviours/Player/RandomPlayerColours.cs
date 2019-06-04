@@ -5,6 +5,7 @@ using UnityEngine;
 public class RandomPlayerColours : MonoBehaviour
 {
     public SpriteRenderer[] PlayerSprites;
+    public Sprite[] hairStyles;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +27,11 @@ public class RandomPlayerColours : MonoBehaviour
         {
             PlayerSprites[i].color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         }
+        changeHair();
+    }
+
+    private void changeHair()
+    {
+        PlayerSprites[3].sprite = hairStyles[Random.Range(0, hairStyles.Length)];
     }
 }

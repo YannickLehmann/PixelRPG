@@ -35,14 +35,11 @@ public class UziScript : WeaponScript
     void Update()
     {
 
-        if (Input.GetMouseButton(0) && useable && (quantity > 0))
+        if (usePermaWeapon())
         {
             StartCoroutine(attakAnimation());
             FireAmmo();
             quantity--;
-        }else if (quantity <= 0)
-        {
-            StartCoroutine(Relaod());
         }
         if (!attaking)
         {
@@ -53,7 +50,7 @@ public class UziScript : WeaponScript
     
     private IEnumerator Relaod()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForFixedUpdate();
         quantity = weapon.quantity;
     }
 

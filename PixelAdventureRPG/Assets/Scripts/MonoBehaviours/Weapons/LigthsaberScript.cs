@@ -16,7 +16,7 @@ public class LigthsaberScript : WeaponScript
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0) && useable)
+        if (useWeapon())
         {
             StartCoroutine(attakAnimation());
             StartCoroutine(resetMovementControll());

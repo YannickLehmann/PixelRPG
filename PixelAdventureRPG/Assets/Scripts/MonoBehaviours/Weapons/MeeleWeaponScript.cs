@@ -16,7 +16,7 @@ public class MeeleWeaponScript : WeaponScript
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0) && useable)
+        if (useWeapon())
         {
             StartCoroutine(attakAnimation());
         }

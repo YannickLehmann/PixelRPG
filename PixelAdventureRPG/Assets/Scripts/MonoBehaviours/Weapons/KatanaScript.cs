@@ -21,7 +21,7 @@ public class KatanaScript : WeaponScript
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0) && useable)
+        if (useWeapon())
         {
             DeactivateMovement();
             StartCoroutine(attakAnimation());

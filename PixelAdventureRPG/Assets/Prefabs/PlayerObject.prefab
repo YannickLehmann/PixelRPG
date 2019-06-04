@@ -700,7 +700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 10
-  startingHitPoints: 8
+  startingHitPoints: 10
   characterCategory: 0
   hitPoints: {fileID: 11400000, guid: f02862d24f2763c49aa55a60d10e414c, type: 2}
   healthBarPrefab: {fileID: 6544721805072356668, guid: 1cad31e01bca72b45aad58f400255723,

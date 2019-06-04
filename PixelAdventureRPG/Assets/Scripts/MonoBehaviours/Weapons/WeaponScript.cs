@@ -24,18 +24,44 @@ public abstract class WeaponScript : MonoBehaviour
     // Set the Correct Animation Controller for the current weapon
     public void Start()
     {
+        attaking = false;
         player = GameObject.FindGameObjectWithTag("Player");
         movementController = player.GetComponent<MovementController>();
-        weaponInterface = this.GetComponent<WeaponInterface>();
+        
         animator = GetComponent<Animator>();
-        attaking = false;
+        effectContainer = transform.GetChild(0).gameObject;
+        //Set weappon Interface values
+        weaponInterface = this.GetComponent<WeaponInterface>();
+        weaponInterface.defaultSprite = this.GetComponent<SpriteRenderer>().sprite;
         weaponInterface.setValues(weapon.attakTime, weapon.cooldown, weapon.quantity, attaking, weapon.rotation);
         weaponInterface.setWeaponManager(player.GetComponent<WeaponManager>());
-        effectContainer = transform.GetChild(0).gameObject;
+
+
 
 
         //Weapon Specific Initialazation
         Initialize();
+    }
+
+    // Chek if tha player uses this weapon
+    public bool useWeapon()
+    {
+        if (Input.GetMouseButtonDown(0) && useable && (weaponInterface.restAmount > 0))
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public bool usePermaWeapon()
+    {
+        if (Input.GetMouseButton(0) && useable && (weaponInterface.restAmount > 0))
+        {
+            return true;
+        }
+        else
+            return false;
     }
 
     private void OnEnable()

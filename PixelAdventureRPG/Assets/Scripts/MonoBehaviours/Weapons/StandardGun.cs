@@ -33,7 +33,7 @@ public class StandardGun : WeaponScript
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0) && useable)
+        if (useWeapon())
         {
             StartCoroutine(attakAnimation());
             FireAmmo();

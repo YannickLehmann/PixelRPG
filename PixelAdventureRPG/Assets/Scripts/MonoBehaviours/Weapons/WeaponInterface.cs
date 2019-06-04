@@ -16,6 +16,10 @@ public class WeaponInterface : MonoBehaviour
     public bool isUsed = false;
     [HideInInspector]
     public Vector3 weaponRaotation;
+    [HideInInspector]
+    public Sprite defaultSprite;
+    [HideInInspector]
+    public int restAmount;
 
     private WeaponManager weaponManager;
 

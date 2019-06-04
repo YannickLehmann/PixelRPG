@@ -45,7 +45,8 @@ public class WeaponManager : MonoBehaviour
         {
             if (i < weaponCounter)
             {
-                weaponDisplay.weaponSprites[i].sprite = weapons[i].GetComponent<SpriteRenderer>().sprite;
+                Debug.Log("i: " + i + weapons[i].GetComponent<SpriteRenderer>().sprite);
+                weaponDisplay.weaponSprites[i].sprite = weapons[i].GetComponent<WeaponInterface>().defaultSprite;
                 weaponDisplay.weaponSprites[i].enabled = true;
             }
             else
@@ -62,6 +63,7 @@ public class WeaponManager : MonoBehaviour
         weapons[0].transform.localRotation = Quaternion.Euler(weapons[0].GetComponent<WeaponInterface>().weaponRaotation);
         currentCooldown = weapons[0].GetComponent<WeaponInterface>().mCooldown;
         weaponAmount = weapons[0].GetComponent<WeaponInterface>().mQuantity;
+        weapons[0].GetComponent<WeaponInterface>().restAmount = weaponAmount;
         weaponDisplay.weaponText.text = weaponAmount.ToString();
 
     }
@@ -69,7 +71,8 @@ public class WeaponManager : MonoBehaviour
     public void UseWeapon()
     {
         weaponAmount--;
-        StartCoroutine(AttaktimeDisplay());
+        weapons[0].GetComponent<WeaponInterface>().restAmount = weaponAmount;
+        
 
 
         if (weaponAmount <= 0)
@@ -79,12 +82,16 @@ public class WeaponManager : MonoBehaviour
                 StartCoroutine(RoatateWeaponsCooldown());
             }
             else
-            {
-                weaponAmount = weapons[0].GetComponent<WeaponInterface>().mQuantity;
+            {             
+                currentCooldown = currentCooldown + 3;
+                Debug.Log("LongCooldown");
+                StartCoroutine(Reload());
             }
         }
         weaponDisplay.weaponText.text = weaponAmount.ToString();
 
+        Debug.Log("CooldownDisplay");
+        StartCoroutine(AttaktimeDisplay());
     }
 
     private void RotateWeapons()
@@ -109,7 +116,7 @@ public class WeaponManager : MonoBehaviour
         weaponDisplay.weaponReload.enabled = true;
         weaponDisplay.weaponReload.fillAmount = 1;
         float percentComplete = 0;
-        float duration = weapons[0].GetComponent<WeaponInterface>().mCooldown - weapons[0].GetComponent<WeaponInterface>().mAttackTime;
+        float duration = currentCooldown - weapons[0].GetComponent<WeaponInterface>().mAttackTime;
 
         while (percentComplete <= 1.0f)
         {
@@ -121,6 +128,14 @@ public class WeaponManager : MonoBehaviour
         }
         weaponDisplay.weaponReload.enabled = false;
 
+    }
+
+    IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(currentCooldown);
+        weaponAmount = weapons[0].GetComponent<WeaponInterface>().mQuantity;
+        weapons[0].GetComponent<WeaponInterface>().restAmount = weaponAmount;
+        SetUpFirstWeapon();
     }
 
     IEnumerator AttaktimeDisplay()
@@ -149,10 +164,5 @@ public class WeaponManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         yield return new WaitForFixedUpdate();
         RotateWeapons();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

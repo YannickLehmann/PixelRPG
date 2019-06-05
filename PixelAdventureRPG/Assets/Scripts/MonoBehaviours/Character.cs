@@ -25,8 +25,8 @@ public abstract class Character : MonoBehaviour {
     public virtual IEnumerator FlickerCharacter()
     {
        
-        GetComponent<SpriteRenderer>().color = Color.red;
+        GetComponentInChildren<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        GetComponent<SpriteRenderer>().color = Color.white;
+        GetComponentInChildren<SpriteRenderer>().color = Color.white;
     }
 }

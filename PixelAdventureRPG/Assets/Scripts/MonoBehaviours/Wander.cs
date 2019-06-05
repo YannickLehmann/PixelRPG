@@ -3,7 +3,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CircleCollider2D))]
-[RequireComponent(typeof(Animator))]
 public class Wander : MonoBehaviour
 {
     public float pursuitSpeed;
@@ -29,7 +28,7 @@ public class Wander : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         currentSpeed = wanderSpeed;
 
         circleCollider = GetComponent<CircleCollider2D>();
@@ -90,6 +89,15 @@ public class Wander : MonoBehaviour
                 Vector3 newPosition = Vector3.MoveTowards(rigidBodyToMove.position, endPosition, speed * Time.deltaTime);
                 rb2d.MovePosition(newPosition);
                 remainingDistance = (transform.position - endPosition).sqrMagnitude;
+
+                if (this.transform.position.x < endPosition.x)
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+                else
+                {
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                }
             }
             yield return new WaitForFixedUpdate();
         }

@@ -25,7 +25,7 @@ public class StandardBullet : MonoBehaviour
 
         destination.z = 0;
         startPosition.z = 0;
-        destination = (destination - startPosition).normalized * 100;
+        destination = (destination - startPosition).normalized * 50;
 
         while (percentComplete <= 1.0f && !collBool)
         {

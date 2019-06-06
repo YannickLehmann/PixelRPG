@@ -1,7 +1,8 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Character
+public class StabbingAttak : Character
 {
     public float damageStrength;
     private Animator anim;
@@ -10,13 +11,11 @@ public class Enemy : Character
     private bool attakable = true;
     private float attakDuration = 0.5f;
 
+    private float hitPoints = 5f;
     Coroutine damageCoroutine;
 
-    float hitPoints;
-
-    private void OnEnable()
+    private void Start()
     {
-        ResetCharacter();
         anim = GetComponent<Animator>();
     }
 
@@ -49,6 +48,7 @@ public class Enemy : Character
         }
     }
 
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (attakable && collision.gameObject.CompareTag("Player"))
@@ -80,7 +80,7 @@ public class Enemy : Character
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player") && attaking)
+        if (collision.gameObject.CompareTag("Player") && attaking)
         {
             Player player = collision.gameObject.GetComponent<Player>();
 
@@ -104,4 +104,5 @@ public class Enemy : Character
             }
         }
     }
+
 }

@@ -30,7 +30,7 @@ public class RandomPlayerColours : MonoBehaviour
         changeHair();
     }
 
-    private void changeHair()
+    public void changeHair()
     {
         PlayerSprites[3].sprite = hairStyles[Random.Range(0, hairStyles.Length)];
     }

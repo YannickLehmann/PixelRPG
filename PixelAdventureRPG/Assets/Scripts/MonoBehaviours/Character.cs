@@ -15,7 +15,9 @@ public abstract class Character : MonoBehaviour {
 
     public virtual void KillCharacter()
     {
-        Destroy(gameObject);
+        if(transform.parent)
+            Destroy(transform.parent.gameObject);
+        Destroy(this.gameObject);
     }
 
     public abstract void ResetCharacter();

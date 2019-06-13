@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7031384600346998881}
   - component: {fileID: 3737093968472570239}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7347707640179798968}
   - component: {fileID: 4585905124875217089}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: PlayerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2524139958282792840}
   - component: {fileID: 1738236973389566077}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: PlayerLegs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 4657912793529469387}
   - component: {fileID: 7368762279566565227}
   - component: {fileID: 1927997085039382944}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: Shield
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3898169586636367161}
   - component: {fileID: 4928704241784223905}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Clothes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 1623929652}
   - component: {fileID: 6774255970519957532}
   - component: {fileID: 3355371544204347693}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: PlayerObject
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -755,7 +755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8964687227069222669}
   - component: {fileID: 7426333468987095253}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Sleeve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -834,7 +834,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8180243446496247073}
   - component: {fileID: 2800168913018761047}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: PlayerBody
   m_TagString: PlayerBody
   m_Icon: {fileID: 0}
@@ -894,7 +894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3634474788608446268}
   - component: {fileID: 5053235724745983539}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -973,7 +973,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3898821248094418457}
   - component: {fileID: 6740592637417171331}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1052,7 +1052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3652743637027627922}
   - component: {fileID: 1468455003763015083}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: WeponParent
   m_TagString: PlayerArm
   m_Icon: {fileID: 0}
@@ -1112,6 +1112,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807734541586629444, guid: a8510bd8ffe681848a7c54a628a3675c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5511035295657672831, guid: a8510bd8ffe681848a7c54a628a3675c,
         type: 3}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAIChasing : MonoBehaviour
 {
 
     public Transform target;
@@ -75,11 +75,11 @@ public class EnemyAI : MonoBehaviour
             currentWaypoint++;
         }
 
-        if (force.x >= 0.01f)
+        if (transform.position.x <= target.position.x)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
-        else if (force.x <= -0.01f)
+        else if (transform.position.x >= target.position.x)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }

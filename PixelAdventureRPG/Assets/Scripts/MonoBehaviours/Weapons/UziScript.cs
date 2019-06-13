@@ -56,10 +56,12 @@ public class UziScript : WeaponScript
 
     GameObject SpawnAmmo(Vector3 location)
     {
+        Debug.Log("SpawnAmmo");
         foreach (GameObject ammo in ammoPool)
         {
             if (ammo.activeSelf == false)
             {
+                Debug.Log("Ammow SPawned");
                 ammo.transform.position = location;
                 ammo.SetActive(true);
                 return ammo;

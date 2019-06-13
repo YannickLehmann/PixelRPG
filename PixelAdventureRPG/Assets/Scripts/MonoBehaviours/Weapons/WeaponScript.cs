@@ -94,16 +94,14 @@ public abstract class WeaponScript : MonoBehaviour
         weaponInterface.setValues(weapon.attakTime, weapon.cooldown, weapon.quantity, attaking, weapon.rotation);
         weaponInterface.WeaponUse();
         animator.SetBool("attack", true);
-        Debug.Log("Attaking");
+
         yield return new WaitForSeconds(weapon.attakTime);
         attaking = false;
         animator.SetBool("attack", false);
         movementController.attaking = attaking;
         StartCoroutine(EffectDisable());
 
-        Debug.Log("Recharging");
-        yield return new WaitForSeconds(weapon.cooldown - weapon.attakTime);
-        Debug.Log("Ready");
+        yield return new WaitForSeconds(weapon.cooldown - weapon.attakTime);;
 
         weaponInterface.setValues(weapon.attakTime, weapon.cooldown, weapon.quantity, attaking, weapon.rotation);
         useable = true;

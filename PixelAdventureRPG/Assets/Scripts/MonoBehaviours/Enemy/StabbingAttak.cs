@@ -5,7 +5,8 @@ using UnityEngine;
 public class StabbingAttak : Character
 {
     public float damageStrength;
-    private Animator anim;
+    public EnemyStateMashine enemyStateMashine;
+    public EnemyAIChasing enemyAIChasing;
     private float attakCooldown = 1f;
     private bool attaking = false;
     private bool attakable = true;
@@ -16,7 +17,7 @@ public class StabbingAttak : Character
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+
     }
 
     public override void ResetCharacter()
@@ -53,15 +54,9 @@ public class StabbingAttak : Character
     {
         if (attakable && collision.gameObject.CompareTag("Player"))
         {
-            if (collision.transform.position.y > this.transform.position.y)
-            {
-                anim.SetBool("PlayerUp", true);
-            }
-            else
-            {
-                anim.SetBool("PlayerUp", false);
-            }
-            anim.SetTrigger("Attaking");
+
+            enemyStateMashine.state = EnemyStateMashine.State.Attaking;
+            enemyStateMashine.setStatebehaviour();
             StartCoroutine(AttakingDuration());
         }
     }
@@ -103,6 +98,21 @@ public class StabbingAttak : Character
                 damageCoroutine = null;
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (enemyAIChasing.enabled)
+            transform.parent.transform.rotation = Quaternion.Euler(0, 0, calculate_angle(enemyAIChasing.target.position, this.transform.position) * Mathf.Rad2Deg);
+    }
+
+    private float calculate_angle(Vector3 playerPosition, Vector3 enemyPosition)
+    {
+        float angle;
+        angle = Mathf.Atan2(playerPosition.y - enemyPosition.y, playerPosition.x - enemyPosition.x);
+        if (playerPosition.x < enemyPosition.x)
+            angle += Mathf.Deg2Rad*180;
+        return angle;
     }
 
 }

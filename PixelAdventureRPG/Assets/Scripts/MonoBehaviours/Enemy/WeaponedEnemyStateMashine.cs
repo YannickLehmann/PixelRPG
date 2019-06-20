@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStateMashine : MonoBehaviour
+public class WeaponedEnemyStateMashine : MonoBehaviour
 {
     public float directionChangeInterval;
 
@@ -33,7 +33,7 @@ public class EnemyStateMashine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponentInChildren<Animator>();
+        anim = GetComponent<Animator>();
         enemyAIPatrolingScript = GetComponent<EnemyAIPatroling>();
         enemyAIChasingScript = GetComponent<EnemyAIChasing>();
         rb2D = GetComponent<Rigidbody2D>();
@@ -73,6 +73,7 @@ public class EnemyStateMashine : MonoBehaviour
     IEnumerator AttakingState()
     {
         anim.SetTrigger("Attaking");
+        Debug.Log("AttakTrigger");
         yield return new WaitForSeconds(attakDuration);
         state = State.Chasing;
         setStatebehaviour();
@@ -103,13 +104,11 @@ public class EnemyStateMashine : MonoBehaviour
                 case (State.Patroling):
                     enemyAIPatrolingScript.enabled = true;
                     enemyAIChasingScript.enabled = false;
-                    anim.SetTrigger("Patrouling");
                     StartCoroutine(PatrolingState());
                     break;
                 case (State.Chasing):
                     enemyAIPatrolingScript.enabled = false;
                     enemyAIChasingScript.enabled = true;
-                    anim.SetTrigger("Chasing");
                     break;
                 case (State.Attaking):
                     enemyAIChasingScript.enabled = false;

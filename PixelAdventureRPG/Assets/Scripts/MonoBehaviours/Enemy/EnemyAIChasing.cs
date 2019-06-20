@@ -33,7 +33,7 @@ public class EnemyAIChasing : MonoBehaviour
 
     void UpdatePath()
     {
-        if(seeker.IsDone())
+        if (seeker.IsDone())
             seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
 
@@ -49,8 +49,10 @@ public class EnemyAIChasing : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         if (path == null)
         {
+            
             return;
         }
         if (currentWaypoint >= path.vectorPath.Count)
@@ -67,7 +69,6 @@ public class EnemyAIChasing : MonoBehaviour
         Vector2 force = direction * speed * Time.deltaTime;
 
         rb.AddForce(force);
-
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
         if (distance < nextWaypointDistance)

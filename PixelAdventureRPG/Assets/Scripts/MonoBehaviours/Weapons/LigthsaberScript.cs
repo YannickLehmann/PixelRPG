@@ -27,6 +27,7 @@ public class LigthsaberScript : WeaponScript
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+
         if (attaking)
         {
             if ((collision is BoxCollider2D) && (collision.gameObject.CompareTag("Enemy")))

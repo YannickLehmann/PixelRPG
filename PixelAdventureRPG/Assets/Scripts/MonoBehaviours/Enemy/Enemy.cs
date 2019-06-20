@@ -1,12 +1,11 @@
 ﻿using System.Collections;
-using System.Collections;
 using UnityEngine;
 
 public class Enemy : Character
 {
     private Animator anim;
     Coroutine damageCoroutine;
-    private EnemyStateMashine enemyStateMashineScript;
+    public EnemyStateMashine enemyStateMashineScript;
 
     float hitPoints;
 
@@ -14,7 +13,7 @@ public class Enemy : Character
     {
         ResetCharacter();
         anim = GetComponent<Animator>();
-        enemyStateMashineScript = GetComponentInParent<EnemyStateMashine>();
+        //enemyStateMashineScript = GetComponentInParent<EnemyStateMashine>();
     }
 
     public override void ResetCharacter()

@@ -92,7 +92,7 @@ public class EnemyStateMashine : MonoBehaviour
 
     public void setStatebehaviour()
     {
-        if (stateSwitchable)
+        if (stateSwitchable && anim)
         {
             switch (state)
             {

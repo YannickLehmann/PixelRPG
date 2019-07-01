@@ -23,15 +23,20 @@ public class StandardBullet : MonoBehaviour
         var startPosition = transform.position;
         var percentComplete = 0.0f;
 
+        Debug.Log(destination);
+        Debug.Log(startPosition);
+
         destination.z = 0;
         startPosition.z = 0;
-        destination = (destination - startPosition).normalized * 50;
+        destination = (destination - startPosition).normalized;
+
+        Debug.Log(destination + "Ziel");
 
         while (percentComplete <= 1.0f && !collBool)
         {
             // Time.deltaTime is the time elapsed since the last frame was drawn
             percentComplete += Time.deltaTime / duration;
-            transform.position = Vector3.Lerp(startPosition, destination, percentComplete);
+            transform.Translate(destination * Time.deltaTime *10, Space.World);
             yield return null;
         }
 

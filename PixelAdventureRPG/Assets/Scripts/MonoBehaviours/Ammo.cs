@@ -9,7 +9,6 @@ public class Ammo : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision");
         // Check if we're colliding with the BoxCollider2D surrounding the Enemy,
         // Necessary since we also have a CircleCollider2D used for the Wander script,
         // and we don't care if the Ammo collides with that collider.

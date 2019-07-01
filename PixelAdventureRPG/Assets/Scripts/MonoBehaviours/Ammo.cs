@@ -4,6 +4,7 @@ public class Ammo : MonoBehaviour
 {
     public float damageInflicted;
     public bool piercing = false;
+    public bool enemyAmmo = false;
 
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -12,13 +13,29 @@ public class Ammo : MonoBehaviour
         // Check if we're colliding with the BoxCollider2D surrounding the Enemy,
         // Necessary since we also have a CircleCollider2D used for the Wander script,
         // and we don't care if the Ammo collides with that collider.
-        if (collision.gameObject.CompareTag("Enemy"))
+
+        if (!enemyAmmo)
         {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            StartCoroutine(enemy.DamageCharacter(damageInflicted, 0.0f));
-            if (!piercing)
+            if (collision.gameObject.CompareTag("Enemy"))
             {
-                gameObject.SetActive(false);
+                Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+                StartCoroutine(enemy.DamageCharacter(damageInflicted, 0.0f));
+                if (!piercing)
+                {
+                    gameObject.SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                Player player = collision.gameObject.GetComponent<Player>();
+                StartCoroutine(player.DamageCharacter(damageInflicted, 0.0f));
+                if (!piercing)
+                {
+                    gameObject.SetActive(false);
+                }
             }
         }
         if (collision.gameObject.layer == LayerMask.NameToLayer("Blocking") && (!collision.gameObject.CompareTag("Ground")) && (!piercing))

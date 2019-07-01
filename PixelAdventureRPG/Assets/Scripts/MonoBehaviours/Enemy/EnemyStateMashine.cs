@@ -107,6 +107,7 @@ public class EnemyStateMashine : MonoBehaviour
                     StartCoroutine(PatrolingState());
                     break;
                 case (State.Chasing):
+                    Debug.Log("ChangeToChasing");
                     enemyAIPatrolingScript.enabled = false;
                     enemyAIChasingScript.enabled = true;
                     anim.SetTrigger("Chasing");
@@ -144,7 +145,7 @@ public class EnemyStateMashine : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") &&( (state == State.Idle) || (state == State.Patroling)))
+        if (collision.gameObject.CompareTag("Player") && (state == State.Patroling))
         {
             state = State.Chasing;
             setStatebehaviour();

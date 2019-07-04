@@ -17,7 +17,7 @@ public class RandomPlayerColours : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            changeColor();
+            //changeColor();
         }
     }
 

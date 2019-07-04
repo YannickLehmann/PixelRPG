@@ -107,7 +107,6 @@ public class EnemyStateMashine : MonoBehaviour
                     StartCoroutine(PatrolingState());
                     break;
                 case (State.Chasing):
-                    Debug.Log("ChangeToChasing");
                     enemyAIPatrolingScript.enabled = false;
                     enemyAIChasingScript.enabled = true;
                     anim.SetTrigger("Chasing");

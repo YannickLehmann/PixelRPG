@@ -13,6 +13,8 @@ public class Player : Character
     public GameObject LeftArm;
     Inventory inventory;
 
+    private MovementController movementController;
+
     public void Start()
 	{
         ResetCharacter();
@@ -30,6 +32,7 @@ public class Player : Character
         hitPoints.value = startingHitPoints;
 
         GetComponent<WeaponManager>().InitializeWeaponManager();
+        movementController = GetComponent<MovementController>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -65,24 +68,29 @@ public class Player : Character
 
     public override IEnumerator DamageCharacter(float damage, float interval)
     {
-        while (true)
+        if (!movementController.dodging)
         {
-            StartCoroutine(FlickerCharacter());
-            hitPoints.value = hitPoints.value - damage;
-            if (hitPoints.value <= float.Epsilon)
-            {
-                KillCharacter();
-                break;
-            }
-            if (interval > float.Epsilon)
-            {
-                yield return new WaitForSeconds(interval);
-            }
-            else
-            {
-                break;
+            while (true)
+        {
+            
+                StartCoroutine(FlickerCharacter());
+                hitPoints.value = hitPoints.value - damage;
+                if (hitPoints.value <= float.Epsilon)
+                {
+                    KillCharacter();
+                    break;
+                }
+                if (interval > float.Epsilon)
+                {
+                    yield return new WaitForSeconds(interval);
+                }
+                else
+                {
+                    break;
+                }
             }
         }
+        yield return new WaitForFixedUpdate();
     }
 
     public override void KillCharacter()

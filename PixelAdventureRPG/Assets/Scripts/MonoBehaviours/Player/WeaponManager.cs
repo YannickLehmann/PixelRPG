@@ -165,4 +165,36 @@ public class WeaponManager : MonoBehaviour
         yield return new WaitForFixedUpdate();
         RotateWeapons();
     }
+
+
+    public void disableWeapons()
+    {
+
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            if (weapons[i])
+            {
+                weapons[i].GetComponent<SpriteRenderer>().enabled = false;
+                if (weapons[i].GetComponent<BoxCollider2D>())
+                    weapons[i].GetComponent<BoxCollider2D>().enabled = false;
+            }
+        }
+        if (weaponDisplay.weaponUsage.enabled == true)
+            weapons[0].transform.GetChild(0).gameObject.SetActive(false);
+    }
+
+    public void enableWeapons()
+    {
+         for (int i = 0; i < weapons.Length; i++)
+         {
+             if (weapons[i])
+             {
+                 weapons[i].GetComponent<SpriteRenderer>().enabled = true;
+                 if (weapons[i].GetComponent<BoxCollider2D>())
+                     weapons[i].GetComponent<BoxCollider2D>().enabled = true;
+             }
+         }
+        if (weaponDisplay.weaponUsage.enabled == true)
+            weapons[0].transform.GetChild(0).gameObject.SetActive(true);
+    }
 }

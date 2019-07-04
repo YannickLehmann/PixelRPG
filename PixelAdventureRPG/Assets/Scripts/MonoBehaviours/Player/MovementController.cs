@@ -24,17 +24,29 @@ public class MovementController : MonoBehaviour
     [HideInInspector]
     public Vector3 mouse_position;
 
+    private WeaponManager weaponManager;
+    private float dodgeSpeed = 8f;
+    private float dodgeCooldown = 2;
+    [HideInInspector]
+    public bool dodging = false;
+    private bool dodgingEnabled = true;
+
     private void Start()
     {
         c = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
+        weaponManager = GetComponent<WeaponManager>();
     }
 
     private void Update()
     {
-        UpdateState();
+        if (!dodging)
+            UpdateState();
+
+        if (Input.GetMouseButtonDown(1) && dodgingEnabled)
+            DodgeMovement();
     }
 
     void FixedUpdate()
@@ -42,9 +54,48 @@ public class MovementController : MonoBehaviour
         if(!attaking)
             WeaponRotation();
 
+        if (!dodging)
+            MoveCharacter();
 
-        MoveCharacter();
+        
     }
+
+    private void DodgeMovement()
+    {
+        animator.SetTrigger("Dodge");
+        StartCoroutine(DodgeMoving());
+    }
+
+
+    IEnumerator DodgeMoving()
+    {
+        dodging = true;
+        dodgingEnabled = false;
+        weaponManager.disableWeapons();
+
+        Vector2 dodgeDirection;
+        dodgeDirection.x = mouse_position.x - this.transform.position.x;
+        dodgeDirection.y = mouse_position.y - this.transform.position.y;
+        dodgeDirection.Normalize();
+
+        yield return null;
+
+
+        while (animator.GetCurrentAnimatorStateInfo(0).IsName("PlayerDodgeAnim"))
+        {
+            rb2D.velocity = dodgeDirection * dodgeSpeed;
+
+            yield return new WaitForFixedUpdate();
+        }
+
+        dodging = false;
+        weaponManager.enableWeapons();
+
+        yield return new WaitForSeconds(dodgeCooldown);
+
+        dodgingEnabled = true;
+    }
+
 
     public void WeaponRotation()
     {
@@ -92,6 +143,7 @@ public class MovementController : MonoBehaviour
         }
         else
         {
+            Debug.Log("Flip");
             spriteBody.transform.rotation = Quaternion.Euler(0, 180, 0);
             //spriteRenderer.flipX = true;
         }

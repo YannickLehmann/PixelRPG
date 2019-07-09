@@ -106,6 +106,7 @@ public class WeaponedRangedEnemyScript : MonoBehaviour
             {
                 ammo.transform.position = location;
                 ammo.SetActive(true);
+                ammo.GetComponent<Ammo>().startPos = this.transform.position;
                 return ammo;
             }
         }

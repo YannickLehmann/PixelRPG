@@ -5,6 +5,7 @@ public class Ammo : MonoBehaviour
     public float damageInflicted;
     public bool piercing = false;
     public bool enemyAmmo = false;
+    public Vector3 startPos;
 
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -18,7 +19,7 @@ public class Ammo : MonoBehaviour
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-                StartCoroutine(enemy.DamageCharacter(damageInflicted, 0.0f));
+                StartCoroutine(enemy.DamageCharacter(damageInflicted, 0.0f, startPos));
                 if (!piercing)
                 {
                     gameObject.SetActive(false);
@@ -30,7 +31,7 @@ public class Ammo : MonoBehaviour
             if (collision.gameObject.CompareTag("Player"))
             {
                 Player player = collision.gameObject.GetComponent<Player>();
-                StartCoroutine(player.DamageCharacter(damageInflicted, 0.0f));
+                StartCoroutine(player.DamageCharacter(damageInflicted, 0.0f, startPos));
                 if (!piercing)
                 {
                     gameObject.SetActive(false);

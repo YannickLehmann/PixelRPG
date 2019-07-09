@@ -15,14 +15,20 @@ public abstract class Character : MonoBehaviour {
 
     public virtual void KillCharacter()
     {
-        if(transform.parent)
-            Destroy(transform.parent.gameObject);
-        Destroy(this.gameObject);
+        Transform parent = transform;
+
+
+        while (parent.parent)
+        {
+            parent = parent.parent;
+        }
+        Destroy(parent.gameObject);
+
     }
 
     public abstract void ResetCharacter();
 
-    public abstract IEnumerator DamageCharacter(float damage, float interval);
+    public abstract IEnumerator DamageCharacter(float damage, float interval, Vector3 position);
 
     public virtual IEnumerator FlickerCharacter()
     {

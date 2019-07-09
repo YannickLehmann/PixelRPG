@@ -26,7 +26,7 @@ public class Enemy1 : Character
         hitPoints = startingHitPoints;
     }
 
-    public override IEnumerator DamageCharacter(float damage, float interval)
+    public override IEnumerator DamageCharacter(float damage, float interval, Vector3 position)
     {
         while (true)
         {
@@ -89,7 +89,7 @@ public class Enemy1 : Character
             // only call DamageCharacter on the player if we don't currently have a DamageCharacter() Coroutine running.
             if (damageCoroutine == null)
             {
-                damageCoroutine = StartCoroutine(player.DamageCharacter(damageStrength, 0));
+                damageCoroutine = StartCoroutine(player.DamageCharacter(damageStrength, 0, this.transform.position));
                 attaking = false;
             }
         }

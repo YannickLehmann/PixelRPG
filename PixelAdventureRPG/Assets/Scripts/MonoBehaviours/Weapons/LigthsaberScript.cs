@@ -35,7 +35,7 @@ public class LigthsaberScript : WeaponScript
                 if (true)
                 {
                     enemy = collision.gameObject.GetComponent<Enemy>();
-                    StartCoroutine(enemy.DamageCharacter(weapon.damage, 0.0f));
+                    StartCoroutine(enemy.DamageCharacter(weapon.damage, 0.0f, this.transform.position));
                     damageable = false;
                     StartCoroutine(DamageCooldown());
                 }

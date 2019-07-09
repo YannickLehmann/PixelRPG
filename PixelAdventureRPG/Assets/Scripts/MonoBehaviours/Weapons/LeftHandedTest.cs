@@ -92,7 +92,7 @@ public class LeftHandedTest : MonoBehaviour
                 if (!enemy)
                 {
                     enemy = collision.gameObject.GetComponent<Enemy>();
-                    StartCoroutine(enemy.DamageCharacter(1, 0.0f));
+                    StartCoroutine(enemy.DamageCharacter(1, 0.0f, this.transform.position));
                 }
             }
         }
@@ -111,7 +111,7 @@ public class LeftHandedTest : MonoBehaviour
                 if (!enemy)
                 {
                     enemy = collision.gameObject.GetComponent<Enemy>();
-                    StartCoroutine(enemy.DamageCharacter(1, 0.0f));
+                    StartCoroutine(enemy.DamageCharacter(1, 0.0f, this.transform.position));
                 }
             }
         }

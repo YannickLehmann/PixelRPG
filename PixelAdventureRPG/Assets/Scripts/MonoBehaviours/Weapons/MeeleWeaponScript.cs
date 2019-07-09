@@ -33,7 +33,7 @@ public class MeeleWeaponScript : WeaponScript
                 if (!enemy)
                 {
                     enemy = collision.gameObject.GetComponent<Enemy>();
-                    StartCoroutine(enemy.DamageCharacter(weapon.damage, 0.0f));
+                    StartCoroutine(enemy.DamageCharacter(weapon.damage, 0.0f, this.transform.position));
                 }
             }
         }
@@ -52,7 +52,7 @@ public class MeeleWeaponScript : WeaponScript
                 if (!enemy)
                 {
                     enemy = collision.gameObject.GetComponent<Enemy>();
-                    StartCoroutine(enemy.DamageCharacter(weapon.damage, 0.0f));
+                    StartCoroutine(enemy.DamageCharacter(weapon.damage, 0.0f, this.transform.position));
                 }
             }
         }

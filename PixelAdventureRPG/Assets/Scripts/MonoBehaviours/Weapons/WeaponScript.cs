@@ -46,7 +46,7 @@ public abstract class WeaponScript : MonoBehaviour
     // Chek if tha player uses this weapon
     public bool useWeapon()
     {
-        if (Input.GetMouseButtonDown(0) && useable && (weaponInterface.restAmount > 0))
+        if (Input.GetMouseButtonDown(0) && useable && (weaponInterface.restAmount > 0) && Player.IsInputEnabled)
         {
             return true;
         }
@@ -56,7 +56,7 @@ public abstract class WeaponScript : MonoBehaviour
 
     public bool usePermaWeapon()
     {
-        if (Input.GetMouseButton(0) && useable && (weaponInterface.restAmount > 0))
+        if (Input.GetMouseButton(0) && useable && (weaponInterface.restAmount > 0) && Player.IsInputEnabled)
         {
             return true;
         }

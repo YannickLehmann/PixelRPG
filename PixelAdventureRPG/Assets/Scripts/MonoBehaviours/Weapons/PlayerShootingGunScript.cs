@@ -54,6 +54,7 @@ public class PlayerShootingGunScript : WeaponScript
             {
                 ammo.SetActive(true);
                 ammo.transform.position = location;
+                ammo.GetComponent<Ammo>().startPos = this.transform.position;
                 return ammo;
             }
         }

@@ -10,7 +10,9 @@ public class Enemy : Character
     public EnemyStateMashine enemyStateMashineScript;
     public List<GameObject> BloodParticles;
 
+    public Rigidbody2D rigidbody2D;
     float hitPoints;
+    private CameraShake cameraShake;
 
     private void OnEnable()
     {
@@ -24,11 +26,13 @@ public class Enemy : Character
     public override void ResetCharacter()
     {
         hitPoints = startingHitPoints;
+        cameraShake = GameObject.FindGameObjectWithTag("VirtualCamera").GetComponent<CameraShake>();
     }
 
-    public override IEnumerator DamageCharacter(float damage, float interval)
+    public override IEnumerator DamageCharacter(float damage, float interval, Vector3 position)
     {
-        InstantiateBlood();
+        InstantiateBlood(position);
+        rigidbody2D.AddForce(new Vector2(transform.position.x - position.x, transform.position.y - position.y).normalized * damage* damage * 50);
         while (true)
         {
             enemyStateMashineScript.state = EnemyStateMashine.State.Affected;
@@ -38,9 +42,12 @@ public class Enemy : Character
 
             if (hitPoints <= float.Epsilon)
             {
+                if (cameraShake)
+                    cameraShake.Shake(damage * 10, damage * 5, 0.2f);
                 KillCharacter();
                 break;
             }
+            cameraShake.Shake(damage * 4, damage * 2, 0.1f);
 
             if (interval > float.Epsilon)
             {
@@ -53,17 +60,15 @@ public class Enemy : Character
         }
     }
 
-    private void InstantiateBlood()
+    private void InstantiateBlood(Vector3 position)
     {
-        if (!player)
-            player = GameObject.FindGameObjectWithTag("Player");
 
         foreach (GameObject blood in BloodParticles)
         {
             if (blood.activeSelf == false)
             {
                 blood.transform.position = this.transform.position;
-                blood.transform.rotation = Quaternion.Euler(0, 0, calculate_angle(this.transform.position, player.transform.position) * Mathf.Rad2Deg);
+                blood.transform.rotation = Quaternion.Euler(0, 0, calculate_angle(this.transform.position, position) * Mathf.Rad2Deg);
                 blood.SetActive(true);
                 return;
             }

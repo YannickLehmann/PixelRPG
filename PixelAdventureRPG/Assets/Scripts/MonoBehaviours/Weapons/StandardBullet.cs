@@ -7,7 +7,6 @@ public class StandardBullet : MonoBehaviour
     private bool collBool = false;
     public GameObject Effect;
 
-
     public void StartTravelBullet(Vector3 destination, float duration)
     {
         if (Effect)
@@ -23,14 +22,9 @@ public class StandardBullet : MonoBehaviour
         var startPosition = transform.position;
         var percentComplete = 0.0f;
 
-        Debug.Log(destination);
-        Debug.Log(startPosition);
-
         destination.z = 0;
         startPosition.z = 0;
         destination = (destination - startPosition).normalized;
-
-        Debug.Log(destination + "Ziel");
 
         while (percentComplete <= 1.0f && !collBool)
         {

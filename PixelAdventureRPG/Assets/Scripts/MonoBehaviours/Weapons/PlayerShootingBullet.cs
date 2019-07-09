@@ -73,7 +73,7 @@ public class PlayerShootingBullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         //Check if a collision witch an obstacle happend
         if(collision.gameObject.layer == LayerMask.NameToLayer("Default") && (!collision.gameObject.CompareTag("Ground")))

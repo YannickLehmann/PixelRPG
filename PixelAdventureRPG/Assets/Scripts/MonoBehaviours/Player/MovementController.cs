@@ -42,7 +42,7 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        if (!dodging)
+        if (!dodging && Player.IsInputEnabled)
             UpdateState();
 
         if (Input.GetMouseButtonDown(1) && dodgingEnabled)
@@ -54,7 +54,7 @@ public class MovementController : MonoBehaviour
         if(!attaking)
             WeaponRotation();
 
-        if (!dodging)
+        if (!dodging && Player.IsInputEnabled)
             MoveCharacter();
 
         
@@ -143,7 +143,6 @@ public class MovementController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Flip");
             spriteBody.transform.rotation = Quaternion.Euler(0, 180, 0);
             //spriteRenderer.flipX = true;
         }

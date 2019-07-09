@@ -53,6 +53,7 @@ public class StandardGun : WeaponScript
             {
                 ammo.transform.position = location;
                 ammo.SetActive(true);
+                ammo.GetComponent<Ammo>().startPos = this.transform.position;
                 return ammo;
             }
         }

@@ -74,7 +74,7 @@ public class EleFlyAttakingScript : MonoBehaviour
             // only call DamageCharacter on the player if we don't currently have a DamageCharacter() Coroutine running.
             if (damageCoroutine == null)
             {
-                damageCoroutine = StartCoroutine(player.DamageCharacter(damageStrength, 0));
+                damageCoroutine = StartCoroutine(player.DamageCharacter(damageStrength, 0, this.transform.position));
 
             }
         }
@@ -90,7 +90,7 @@ public class EleFlyAttakingScript : MonoBehaviour
             // only call DamageCharacter on the player if we don't currently have a DamageCharacter() Coroutine running.
             if (damageCoroutine == null)
             {
-                damageCoroutine = StartCoroutine(player.DamageCharacter(damageStrength, 0));
+                damageCoroutine = StartCoroutine(player.DamageCharacter(damageStrength, 0, this.transform.position));
 
             }
         }

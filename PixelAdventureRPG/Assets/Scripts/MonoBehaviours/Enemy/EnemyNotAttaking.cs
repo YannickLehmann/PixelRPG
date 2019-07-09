@@ -21,7 +21,7 @@ public class EnemyNotAttaking : Character
         hitPoints = startingHitPoints;
     }
 
-    public override IEnumerator DamageCharacter(float damage, float interval)
+    public override IEnumerator DamageCharacter(float damage, float interval, Vector3 position)
     {
         while (true)
         {

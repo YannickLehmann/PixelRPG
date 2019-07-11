@@ -8,6 +8,7 @@ public class Enemy : Character
     private GameObject player;
     Coroutine damageCoroutine;
     public EnemyStateMashine enemyStateMashineScript;
+    private GameObject bloodParticlesContainer;
     public List<GameObject> BloodParticles;
 
     public Rigidbody2D rigidbody2D;
@@ -26,7 +27,17 @@ public class Enemy : Character
     public override void ResetCharacter()
     {
         hitPoints = startingHitPoints;
+        loadBloodEffect();
         cameraShake = GameObject.FindGameObjectWithTag("VirtualCamera").GetComponent<CameraShake>();
+    }
+
+    private void loadBloodEffect()
+    {
+        bloodParticlesContainer = GameObject.FindGameObjectWithTag("BloodParticleSystem");
+        for (int i = 0; i < 10; i++)
+        {
+            BloodParticles.Insert(i, bloodParticlesContainer.transform.GetChild(i).gameObject);
+        }
     }
 
     public override IEnumerator DamageCharacter(float damage, float interval, Vector3 position)

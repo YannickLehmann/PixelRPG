@@ -9,6 +9,8 @@ public class MovementController : MonoBehaviour
     public GameObject spriteBody;
     Vector2 movement = new Vector2();
 
+    public GameObject[] effects;
+
     [HideInInspector]
     public bool attaking = false;
 
@@ -63,6 +65,8 @@ public class MovementController : MonoBehaviour
     private void DodgeMovement()
     {
         animator.SetTrigger("Dodge");
+        effects[0].SetActive(false);
+        effects[1].SetActive(true);
         StartCoroutine(DodgeMoving());
     }
 
@@ -89,6 +93,7 @@ public class MovementController : MonoBehaviour
         }
 
         dodging = false;
+        effects[1].SetActive(false);
         weaponManager.enableWeapons();
 
         yield return new WaitForSeconds(dodgeCooldown);
@@ -120,6 +125,11 @@ public class MovementController : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         movement.Normalize();
+        if (movement == Vector2.zero)
+            effects[0].SetActive(false);
+        else
+            effects[0].SetActive(true);
+
         rb2D.velocity = movement * movementSpeed;
     }
 

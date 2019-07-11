@@ -32,7 +32,7 @@ TagManager:
   - Weapon
   - Player
   - EnemyAmmo
-  - 
+  - Background
   - 
   - 
   - 
@@ -66,4 +66,7 @@ TagManager:
     locked: 0
   - name: Weapons
     uniqueID: 44088829
+    locked: 0
+  - name: Ligth
+    uniqueID: 990589251
     locked: 0

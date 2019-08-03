@@ -114,6 +114,16 @@ public abstract class WeaponScript : MonoBehaviour
 
     }
 
+    public void ResetWeapon()
+    {
+        attaking = false;
+        animator.SetBool("attack", false);
+        movementController.attaking = attaking;
+        weaponInterface.setValues(weapon.attakTime, weapon.cooldown, weapon.quantity, attaking, weapon.rotation);
+        weaponInterface.ResetWeapon();
+        useable = true;
+    }
+
     public abstract void Initialize();
 
 }

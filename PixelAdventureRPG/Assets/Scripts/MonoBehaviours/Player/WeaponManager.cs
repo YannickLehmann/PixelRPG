@@ -197,4 +197,13 @@ public class WeaponManager : MonoBehaviour
         if (weaponDisplay.weaponUsage.enabled == true)
             weapons[0].transform.GetChild(0).gameObject.SetActive(true);
     }
+
+    public void ResetFirstWeapon()
+    {
+        StopAllCoroutines();
+        SetUpFirstWeapon();
+        weaponDisplay.weaponUsage.enabled = false;
+        weaponDisplay.weaponReload.enabled = false;
+
+    }
 }

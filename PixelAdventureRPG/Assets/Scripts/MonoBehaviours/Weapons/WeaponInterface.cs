@@ -43,4 +43,9 @@ public class WeaponInterface : MonoBehaviour
     {
         weaponManager.UseWeapon();
     }
+
+    public void ResetWeapon()
+    {
+        weaponManager.ResetFirstWeapon();
+    }
 }

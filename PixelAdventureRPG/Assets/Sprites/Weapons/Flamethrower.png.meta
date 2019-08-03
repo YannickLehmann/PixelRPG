@@ -130,13 +130,13 @@ TextureImporter:
         width: 30
         height: 10
       alignment: 9
-      pivot: {x: 0.3065504, y: 0.6689625}
+      pivot: {x: 0.24288346, y: 0.4412304}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c579010c1e7f824ba52ed589472bee4
+      spriteID: a73991f73c916cb42a90c2905e9c4553
       vertices: []
       indices: 
       edges: []
@@ -149,14 +149,14 @@ TextureImporter:
         y: 23
         width: 30
         height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.26492202, y: 0.40449923}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c0530e20803fa94486efbbdc4b7c457
+      spriteID: ab15f099c3c67754893f053bacb4295b
       vertices: []
       indices: 
       edges: []
@@ -165,18 +165,18 @@ TextureImporter:
       name: Flamethrower_2
       rect:
         serializedVersion: 2
-        x: 7
-        y: 11
-        width: 14
-        height: 7
+        x: 6
+        y: 8
+        width: 8
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f67124f1eccfa749b3f292ab26ca77d
+      spriteID: 9225d3721bdd131459c0f5cc029fb861
       vertices: []
       indices: 
       edges: []
@@ -185,18 +185,18 @@ TextureImporter:
       name: Flamethrower_3
       rect:
         serializedVersion: 2
-        x: 36
-        y: 14
-        width: 14
-        height: 8
+        x: 24
+        y: 7
+        width: 7
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eecc8dcda402f8c409fd9a14da61a71e
+      spriteID: cf7966ae006a5d44f836ffdb98b9db3a
       vertices: []
       indices: 
       edges: []
@@ -205,18 +205,18 @@ TextureImporter:
       name: Flamethrower_4
       rect:
         serializedVersion: 2
-        x: 29
-        y: 4
-        width: 12
-        height: 7
+        x: 45
+        y: 2
+        width: 7
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f3d3280dee43e64b8ebdb6a4443867f
+      spriteID: dc19619bb0f6c444bb1c78cc7a4d2011
       vertices: []
       indices: 
       edges: []

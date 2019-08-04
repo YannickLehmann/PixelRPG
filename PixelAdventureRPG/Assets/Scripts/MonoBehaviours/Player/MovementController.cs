@@ -110,11 +110,11 @@ public class MovementController : MonoBehaviour
         {
             if (dirextionX >= 0)
             {
-                weapon.GetComponentInChildren<SpriteRenderer>().flipY = false;
+                weapon.transform.localScale = new Vector3(1, 1, 1);
             }
             else
             {
-                weapon.GetComponentInChildren<SpriteRenderer>().flipY = true;
+                weapon.transform.localScale = new Vector3(1, -1, 1);
             }
         }
     }

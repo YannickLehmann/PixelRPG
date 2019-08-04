@@ -30,7 +30,7 @@ public class Flamethrower : WeaponScript
 
         if (attaking)
         {
-            if ((collision is BoxCollider2D) && (collision.gameObject.CompareTag("Enemy")))
+            if ((collision is BoxCollider2D) && (collision.gameObject.CompareTag("Enemy")) && damageable)
             {
                 if (true)
                 {

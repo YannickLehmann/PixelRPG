@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 725462146}
   - component: {fileID: 386359362}
   - component: {fileID: 386359361}
-  - component: {fileID: 386359360}
+  - component: {fileID: 7876004349092972821}
   - component: {fileID: 386359359}
   - component: {fileID: 386359363}
   - component: {fileID: 386359357}
@@ -221,7 +221,7 @@ Animator:
   m_GameObject: {fileID: 386359356}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0148d21c4143a99448d9a6d63d70bd9d, type: 2}
+  m_Controller: {fileID: 9100000, guid: bd782060adf2d9547ac6c44ff9253642, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -230,7 +230,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &386359360
+--- !u!114 &7876004349092972821
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 386359356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dd50e10438ace84b9f2cb828466eca3, type: 3}
+  m_Script: {fileID: 11500000, guid: eace1e06539b68641ae94564aa22830d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: b7b38c94ea78fe8498c30929754f3ffa, type: 2}

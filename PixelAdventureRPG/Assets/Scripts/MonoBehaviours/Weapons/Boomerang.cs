@@ -49,7 +49,7 @@ public class Boomerang : WeaponScript
         {
             BoomerangShooting boomerangScript = boomerangObject.GetComponent<BoomerangShooting>();
             boomerangObject.GetComponent<Ammo>().damageInflicted = weapon.damage;
-            boomerangScript.StartTravelBoomerang(mousePosition, weapon.cooldown, this);
+            boomerangScript.StartTravelBoomerang(mousePosition, weapon.attakTime, this);
         }
 
     }

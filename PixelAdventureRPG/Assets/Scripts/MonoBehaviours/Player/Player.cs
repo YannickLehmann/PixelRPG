@@ -141,7 +141,6 @@ public class Player : Character
     {
         anim.SetTrigger("Damaged");
         IsInputEnabled = false;
-        Debug.Log("Affected");
         yield return new WaitForFixedUpdate();
 
         while (anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerAffected"))
@@ -151,7 +150,6 @@ public class Player : Character
             yield return new WaitForFixedUpdate();
         }
         IsInputEnabled = true;
-        Debug.Log("Affection Over");
     }
 
     public override void KillCharacter()

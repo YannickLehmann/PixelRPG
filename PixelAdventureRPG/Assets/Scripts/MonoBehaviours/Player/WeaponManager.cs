@@ -8,7 +8,7 @@ public class WeaponManager : MonoBehaviour
     public WeaponDisplay weaponDisplay;
 
     private int weaponCounter = 0;
-    private int weaponAmount = 0;
+    public int weaponAmount = 0;
 
     private float currentCooldown;
 
@@ -45,7 +45,6 @@ public class WeaponManager : MonoBehaviour
         {
             if (i < weaponCounter)
             {
-                Debug.Log("i: " + i + weapons[i].GetComponent<SpriteRenderer>().sprite);
                 weaponDisplay.weaponSprites[i].sprite = weapons[i].GetComponent<WeaponInterface>().defaultSprite;
                 weaponDisplay.weaponSprites[i].enabled = true;
             }
@@ -84,18 +83,17 @@ public class WeaponManager : MonoBehaviour
             else
             {             
                 currentCooldown = currentCooldown + 3;
-                Debug.Log("LongCooldown");
                 StartCoroutine(Reload());
             }
         }
         weaponDisplay.weaponText.text = weaponAmount.ToString();
 
-        Debug.Log("CooldownDisplay");
         StartCoroutine(AttaktimeDisplay());
     }
 
     private void RotateWeapons()
     {
+        Debug.Log("rotate Weapons");
         GameObject buffer;
         if (weaponCounter > 1) {
             weapons[0].SetActive(false);
@@ -106,6 +104,10 @@ public class WeaponManager : MonoBehaviour
                 weapons[i + 1] = buffer;
             }
             SetUpFirstWeapon();
+        }
+        else
+        {
+            ResetFirstWeapon();
         }
         DisplayWeapons();
         weaponDisplay.weaponText.text = weaponAmount.ToString();
@@ -204,6 +206,32 @@ public class WeaponManager : MonoBehaviour
         SetUpFirstWeapon();
         weaponDisplay.weaponUsage.enabled = false;
         weaponDisplay.weaponReload.enabled = false;
+
+    }
+
+    public void RemoveWeapon(int index)
+    {
+        
+        if (weapons[index])
+        {
+            Debug.Log("NOW!!! RemoveWeapon" + index + weaponCounter);
+            Destroy(weapons[index]);
+            if (index < (weaponCounter-1))
+            {
+                while (index < weaponCounter - 1)
+                {
+                    weapons[index] = weapons[index + 1];
+                    index++;
+                }
+                weapons[index] = null;
+            }
+            else
+            {
+                weapons[index] = null;
+            }
+            weaponCounter--;
+            DisplayWeapons();
+        }
 
     }
 }

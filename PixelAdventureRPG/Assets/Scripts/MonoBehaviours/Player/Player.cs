@@ -10,7 +10,7 @@ public class Player : Character
 
     public HitPoints hitPoints;
     public HealthBar healthBarPrefab;
-    HealthBar healthBar;
+    public HealthBar healthBar;
 
     public Inventory inventoryPrefab;
     public GameObject LeftArmPrefab;
@@ -23,6 +23,9 @@ public class Player : Character
 
     private GameObject bloodParticlesContainer;
     public List<GameObject> BloodParticles;
+
+    [HideInInspector]
+    public float amor = 0;
 
     public void Start()
 	{
@@ -96,7 +99,7 @@ public class Player : Character
         {
             
                 StartCoroutine(FlickerCharacter());
-                hitPoints.value = hitPoints.value - damage;
+                hitPoints.value = hitPoints.value - (damage*(1-amor));
                 if (hitPoints.value <= float.Epsilon)
                 {
                     KillCharacter();

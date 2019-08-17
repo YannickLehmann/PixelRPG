@@ -10,7 +10,12 @@ public class HealthBar : MonoBehaviour
 
     public Image meterImage;
 
+    public Image armorMeterImage;
+    public Text armorText;
+
     public Text hpText;
+
+    public GameObject[] armors;
 
     float maxHitPoints;
 
@@ -23,8 +28,16 @@ public class HealthBar : MonoBehaviour
     {
         if (character != null)
         {
+            armorMeterImage.fillAmount = character.GetComponent<Player>().amor;
             meterImage.fillAmount = hitPoints.value / maxHitPoints;
-            hpText.text = "HP:" + (meterImage.fillAmount * 100);
+            hpText.text = "HP:" + (int)(meterImage.fillAmount * 100);
+            armorText.text = (int)(armorMeterImage.fillAmount * 100) + "%";
         }
+    }
+
+    public void ActivateArmor(int index)
+    {
+        armors[index].SetActive(true);
+
     }
 }

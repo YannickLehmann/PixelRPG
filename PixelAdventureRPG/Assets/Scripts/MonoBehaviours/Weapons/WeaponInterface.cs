@@ -20,16 +20,22 @@ public class WeaponInterface : MonoBehaviour
     public Sprite defaultSprite;
     [HideInInspector]
     public int restAmount;
+    [HideInInspector]
+    public string mTooltip = "empty";
+    [HideInInspector]
+    public float mDamage;
 
     private WeaponManager weaponManager;
 
-    public void setValues(float attakTime,float cooldown, int quantity, bool attaking, Vector3 rotation)
+    public void setValues(float attakTime,float cooldown, int quantity, bool attaking, Vector3 rotation, string tooltip, float Damage)
     {
         mAttackTime = attakTime;
         mCooldown = cooldown;
         mQuantity = quantity;
         mAttaking = attaking;
         weaponRaotation = rotation;
+        mTooltip = tooltip;
+        mDamage = Damage;
     }
 
 

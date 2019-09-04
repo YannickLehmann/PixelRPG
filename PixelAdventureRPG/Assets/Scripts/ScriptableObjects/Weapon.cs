@@ -13,16 +13,8 @@ public class Weapon : ScriptableObject
     public Vector3 rotation;
 
     public int quantity;
-
+    public string tooltip;
     
 
-    public enum WeaponType
-    {
-        SLINGSHOT,
-        STICK, 
-        STABI,
-        PLAYERSHOOTINGGUN
-    }
 
-    public WeaponType weaponType;
 }

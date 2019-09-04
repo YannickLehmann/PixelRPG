@@ -33,7 +33,7 @@ public abstract class WeaponScript : MonoBehaviour
         //Set weappon Interface values
         weaponInterface = this.GetComponent<WeaponInterface>();
         weaponInterface.defaultSprite = this.GetComponent<SpriteRenderer>().sprite;
-        weaponInterface.setValues(weapon.attakTime, weapon.cooldown, weapon.quantity, attaking, weapon.rotation);
+        weaponInterface.setValues(weapon.attakTime, weapon.cooldown, weapon.quantity, attaking, weapon.rotation, weapon.tooltip, weapon.damage);
         weaponInterface.setWeaponManager(player.GetComponent<WeaponManager>());
 
 
@@ -91,7 +91,7 @@ public abstract class WeaponScript : MonoBehaviour
         movementController.attaking = attaking;
         effectContainer.SetActive(true);
 
-        weaponInterface.setValues(weapon.attakTime, weapon.cooldown, weapon.quantity, attaking, weapon.rotation);
+        weaponInterface.setValues(weapon.attakTime, weapon.cooldown, weapon.quantity, attaking, weapon.rotation, weapon.tooltip, weapon.damage);
         weaponInterface.WeaponUse();
         animator.SetBool("attack", true);
 
@@ -103,7 +103,7 @@ public abstract class WeaponScript : MonoBehaviour
 
         yield return new WaitForSeconds(weapon.cooldown - weapon.attakTime);;
 
-        weaponInterface.setValues(weapon.attakTime, weapon.cooldown, weapon.quantity, attaking, weapon.rotation);
+        weaponInterface.setValues(weapon.attakTime, weapon.cooldown, weapon.quantity, attaking, weapon.rotation, weapon.tooltip, weapon.damage);
         useable = true;
     }
 
@@ -119,7 +119,7 @@ public abstract class WeaponScript : MonoBehaviour
         attaking = false;
         animator.SetBool("attack", false);
         movementController.attaking = attaking;
-        weaponInterface.setValues(weapon.attakTime, weapon.cooldown, weapon.quantity, attaking, weapon.rotation);
+        weaponInterface.setValues(weapon.attakTime, weapon.cooldown, weapon.quantity, attaking, weapon.rotation, weapon.tooltip, weapon.damage);
         weaponInterface.ResetWeapon();
         useable = true;
     }

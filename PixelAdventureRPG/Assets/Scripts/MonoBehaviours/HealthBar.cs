@@ -30,14 +30,15 @@ public class HealthBar : MonoBehaviour
         {
             armorMeterImage.fillAmount = character.GetComponent<Player>().amor;
             meterImage.fillAmount = hitPoints.value / maxHitPoints;
-            hpText.text = "HP:" + (int)(meterImage.fillAmount * 100);
+            hpText.text = "HP:" + (int)(hitPoints.value * 10);
             armorText.text = (int)(armorMeterImage.fillAmount * 100) + "%";
         }
     }
 
-    public void ActivateArmor(int index)
+    public void ActivateArmor(int index, Color color)
     {
         armors[index].SetActive(true);
+        armors[index].GetComponent<Image>().color = color;
 
     }
 }

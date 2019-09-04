@@ -518,12 +518,14 @@ MonoBehaviour:
   hitPoints: {fileID: 11400000, guid: f02862d24f2763c49aa55a60d10e414c, type: 2}
   healthBarPrefab: {fileID: 6544721805072356668, guid: fa8db2c63ae90b84793c1008dc599efd,
     type: 3}
+  healthBar: {fileID: 0}
   inventoryPrefab: {fileID: 362429187923746504, guid: c8615b593fd1df14aa43f3f8bab5b377,
     type: 3}
   LeftArmPrefab: {fileID: 2074450608581319622, guid: 9e483035c0275d84a8a2e075b25b97f7,
     type: 3}
   LeftArm: {fileID: 0}
   BloodParticles: []
+  amor: 0
 --- !u!114 &6774255970519957532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,6 +557,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftArm: {fileID: 0}
   weaponDisplay: {fileID: 0}
+  weaponPickupContainer: {fileID: 8861837717309766725, guid: 73a702c3b9a1cee4ab495f1b097ac9d7,
+    type: 3}
   weaponAmount: 0
   weapons:
   - {fileID: 0}

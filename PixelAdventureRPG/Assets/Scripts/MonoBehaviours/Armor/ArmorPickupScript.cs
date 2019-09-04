@@ -32,15 +32,15 @@ public class ArmorPickupScript : MonoBehaviour
         {
             case amorType.Helmet:
                 Debug.Log("Helmet");
-                player.GetComponentInChildren<RandomPlayerColours>().setHelmet(weaponSprite);
+                player.GetComponentInChildren<RandomPlayerColours>().setHelmet(weaponSprite, this.GetComponent<SpriteRenderer>().color);
                 break;
             case amorType.Armor:
                 Debug.Log("Armor");
-                player.GetComponentInChildren<RandomPlayerColours>().setArmor(weaponSprite);
+                player.GetComponentInChildren<RandomPlayerColours>().setArmor(weaponSprite, this.GetComponent<SpriteRenderer>().color);
                 break;
             case amorType.Shoe:
                 Debug.Log("Shoes");
-                player.GetComponentInChildren<RandomPlayerColours>().setShoes(Color.grey);
+                player.GetComponentInChildren<RandomPlayerColours>().setShoes(this.GetComponent<SpriteRenderer>().color);
                 break;
             default:
                 break;

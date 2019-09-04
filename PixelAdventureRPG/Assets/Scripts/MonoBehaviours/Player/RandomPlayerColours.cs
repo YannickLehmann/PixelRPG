@@ -41,39 +41,45 @@ public class RandomPlayerColours : MonoBehaviour
             localPlayerSprites[3] = PlayerSprites[3].sprite;
         }
     }
-
-    public void setHelmet(Sprite helmet)
+    //TODO Buff for enchanted Weapon//////////////////////////////////////////////
+    public void setHelmet(Sprite helmet, Color color)
     {
         Debug.Log("SetHelmet");
-        player.amor += 0.2f;
-        player.healthBar.ActivateArmor(0);
+        player.amor += 0.1f;
+        player.healthBar.ActivateArmor(0, color);
         hasHelmet = true;
         PlayerSprites[3].sprite = helmet;
         hairColor = PlayerSprites[3].color;
-        PlayerSprites[3].color = Color.white;
+        PlayerSprites[3].color = color;
+
+
     }
 
-    public void setArmor(Sprite armor)
+    public void setArmor(Sprite armor, Color color)
     {
         player.amor += 0.2f;
-        player.healthBar.ActivateArmor(1);
+        player.healthBar.ActivateArmor(1, color);
         PlayerSprites[2].sprite = armor;
         shirtColor = PlayerSprites[2].color;
-        PlayerSprites[2].color = Color.white;
+        PlayerSprites[2].color = color;
 
+        player.maxHitPoints = 12;
+        player.AdjustHitPoints(2);
     }
 
     public void setShoes(Color color)
     {
         player.amor += 0.2f;
-        player.healthBar.ActivateArmor(2);
+        player.healthBar.ActivateArmor(2, color);
         shoeColor = PlayerSprites[0].color;
         PlayerSprites[0].color = color;
 
+        //player.GetComponent<MovementController>().movementSpeed += 6;
     }
 
     public void removeHelmet()
     {
+        Debug.Log("RemoveHelm,,et");
         hasHelmet = false;
         PlayerSprites[3].sprite = localPlayerSprites[3];
         PlayerSprites[3].color = hairColor;

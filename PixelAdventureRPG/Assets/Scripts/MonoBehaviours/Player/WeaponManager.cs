@@ -6,6 +6,7 @@ public class WeaponManager : MonoBehaviour
 {
     public GameObject leftArm;
     public WeaponDisplay weaponDisplay;
+    public GameObject weaponPickupContainer;
 
     private int weaponCounter = 0;
     public int weaponAmount = 0;
@@ -13,6 +14,9 @@ public class WeaponManager : MonoBehaviour
     private float currentCooldown;
 
     public  GameObject[] weapons = new GameObject[3];
+
+    private GameObject newWeaponPickup;
+    private GameObject newWeaponPickupChild;
 
 
     public void InitializeWeaponManager()
@@ -214,8 +218,12 @@ public class WeaponManager : MonoBehaviour
         
         if (weapons[index])
         {
-            Debug.Log("NOW!!! RemoveWeapon" + index + weaponCounter);
-            Destroy(weapons[index]);
+            newWeaponPickup = Instantiate(weaponPickupContainer);
+            newWeaponPickupChild = newWeaponPickup.transform.GetChild(0).gameObject;
+            weapons[index].transform.SetParent(newWeaponPickupChild.transform);
+            newWeaponPickup.transform.position = this.transform.position;
+            newWeaponPickup.GetComponent<Rigidbody2D>().AddForce(Vector2.up*3, ForceMode2D.Impulse);
+     
             if (index < (weaponCounter-1))
             {
                 while (index < weaponCounter - 1)

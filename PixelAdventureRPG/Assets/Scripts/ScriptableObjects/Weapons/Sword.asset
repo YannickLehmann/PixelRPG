@@ -20,4 +20,4 @@ MonoBehaviour:
   damage: 1
   rotation: {x: 0, y: 0, z: 0}
   quantity: 4
-  tooltip: Just a regualr sword dude
+  tooltip: Just a regular sword dude

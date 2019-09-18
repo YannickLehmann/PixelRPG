@@ -33,6 +33,7 @@ public class Inventory : MonoBehaviour
 
     public bool AddItem(Item itemToAdd)
     {
+        return true;
         for (int i = 0; i < items.Length; i++)
         {
             if (items[i] != null && items[i].itemType == itemToAdd.itemType && itemToAdd.stackable == true)

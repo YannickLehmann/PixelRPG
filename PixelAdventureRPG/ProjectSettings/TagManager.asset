@@ -15,6 +15,8 @@ TagManager:
   - EffectContainer
   - BloodParticleSystem
   - Undefined
+  - HitParticleSystem
+  - DeathParticleSystem
   layers:
   - Default
   - TransparentFX

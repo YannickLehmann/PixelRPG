@@ -221,7 +221,9 @@ public class WeaponManager : MonoBehaviour
             newWeaponPickup = Instantiate(weaponPickupContainer);
             newWeaponPickupChild = newWeaponPickup.transform.GetChild(0).gameObject;
             weapons[index].transform.SetParent(newWeaponPickupChild.transform);
+            weapons[index].GetComponent<SpriteRenderer>().sprite = weapons[index].GetComponent<WeaponInterface>().defaultSprite;
             newWeaponPickup.transform.position = this.transform.position;
+            newWeaponPickup.SetActive(true);
             newWeaponPickup.GetComponent<Rigidbody2D>().AddForce(Vector2.up*3, ForceMode2D.Impulse);
      
             if (index < (weaponCounter-1))

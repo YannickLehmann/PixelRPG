@@ -12,7 +12,7 @@ public class HealthBar : MonoBehaviour
 
     public Image armorMeterImage;
     public Text armorText;
-
+    public Text pointsText;
     public Text hpText;
 
     public GameObject[] armors;
@@ -39,6 +39,23 @@ public class HealthBar : MonoBehaviour
     {
         armors[index].SetActive(true);
         armors[index].GetComponent<Image>().color = color;
+
+    }
+
+    public bool increasePoints(int amount)
+    {
+        int curentPoints = int.Parse(pointsText.text);
+        curentPoints += amount;
+        if (curentPoints < 100)
+        {
+            pointsText.text = curentPoints.ToString();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
 
     }
 }

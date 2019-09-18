@@ -8,6 +8,7 @@ public class WeaponPickupScript : MonoBehaviour
     private Sprite weaponSprite;
     private bool pickupable = false;
     public string tooltip;
+    public GameObject shadow;
 
     private void Start()
     {
@@ -17,7 +18,9 @@ public class WeaponPickupScript : MonoBehaviour
         weaponToPickUp.SetActive(false);
         this.GetComponent<SpriteRenderer>().sprite = weaponSprite;
         StartCoroutine(setPickupable());
+        ShadowResize();
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && pickupable)
@@ -47,6 +50,19 @@ public class WeaponPickupScript : MonoBehaviour
         weaponToPickUp.transform.SetParent(player.transform.GetChild(0));
         weaponToPickUp.transform.localPosition = Vector3.zero;
         weaponToPickUp.transform.localRotation = Quaternion.Euler(weaponToPickUp.GetComponent<WeaponInterface>().weaponRaotation);
-        this.gameObject.transform.parent.gameObject.SetActive(false);
+        Destroy(this.gameObject.transform.parent.gameObject); //.SetActive(false);
+    }
+
+    private void ShadowResize()
+    {
+        if (shadow)
+        {
+            shadow.transform.localScale = new Vector2(this.GetComponent<SpriteRenderer>().bounds.size.x / shadow.GetComponent<SpriteRenderer>().bounds.size.x, shadow.transform.localScale.y);
+            if (this.GetComponent<SpriteRenderer>().bounds.size.y >= 0.5f)
+            {
+                shadow.transform.localPosition = new Vector2(shadow.transform.localPosition.x, shadow.transform.localPosition.y - 0.1f);
+            }
+            GetComponent<BoxCollider2D>().size = new Vector2(shadow.transform.localScale.x/2, 0.4f);
+        }
     }
 }

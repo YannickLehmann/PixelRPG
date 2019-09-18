@@ -40,7 +40,8 @@ public class Tooltip : MonoBehaviour
 
     private void HideTooltip()
     {
-        gameObject.SetActive(false);
+        if(gameObject)
+            gameObject.SetActive(false);
 
     }
 

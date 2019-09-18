@@ -76,6 +76,9 @@ public class Player : Character
                     case Item.ItemType.HEALTH:
                         shouldDisappear = AdjustHitPoints(hitObject.quantity);
                         break;
+                    case Item.ItemType.POINT:
+                        shouldDisappear = healthBar.increasePoints(hitObject.quantity);
+                        break;
                     default:
                         break;
                 }

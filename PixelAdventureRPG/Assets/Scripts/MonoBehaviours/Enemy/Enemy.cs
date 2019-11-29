@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : Character
 {
+    public int points;
     public List<GameObject> rewards;
 
     private Animator anim;
@@ -171,8 +172,11 @@ public class Enemy : Character
             float i = Random.Range(0, 10);
             if (i < 9)
             {
-                GameObject deathReward = Instantiate(rewards[0]);
-                deathReward.transform.position = transform.position;
+                for (int j = 0; j < points; j++)
+                {
+                    SpawnPoints();
+                }
+           
             }
             else
             {
@@ -180,5 +184,13 @@ public class Enemy : Character
                 deathReward.transform.position = transform.position;
             }
         }
+    }
+
+    private void SpawnPoints()
+    {
+        GameObject deathReward = Instantiate(rewards[0]);
+        deathReward.transform.position = transform.position;
+        deathReward.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-100f, 100f), Random.Range(-100f, 100f)));
+
     }
 }

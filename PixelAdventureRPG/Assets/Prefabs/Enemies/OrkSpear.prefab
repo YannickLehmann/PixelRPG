@@ -124,6 +124,10 @@ MonoBehaviour:
   maxHitPoints: 5
   startingHitPoints: 5
   characterCategory: 1
+  points: 4
+  rewards:
+  - {fileID: 7643676260374722423, guid: c33df3004bf8c9a4d851128a3ef63f89, type: 3}
+  - {fileID: 1129490735992636783, guid: 0a701907ac1bc064595a30e8e03fd38f, type: 3}
   enemyStateMashineScript: {fileID: 33366878}
   BloodParticles:
   - {fileID: 0}
@@ -136,7 +140,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  hitParticles: []
+  deathParticles: []
   rigidbody2D: {fileID: 359393679}
+  effectAvailable: 1
 --- !u!50 &14877197
 Rigidbody2D:
   serializedVersion: 4

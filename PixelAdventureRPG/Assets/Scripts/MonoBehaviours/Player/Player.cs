@@ -77,7 +77,8 @@ public class Player : Character
                         shouldDisappear = AdjustHitPoints(hitObject.quantity);
                         break;
                     case Item.ItemType.POINT:
-                        shouldDisappear = healthBar.increasePoints(hitObject.quantity);
+                        collision.GetComponent<PointsPickupScript>().Pickup(this.gameObject, healthBar);
+                        shouldDisappear = false;
                         break;
                     default:
                         break;
@@ -85,6 +86,7 @@ public class Player : Character
 
                 if (shouldDisappear)
                 {
+                    Debug.Log("SetInactive");
                     collision.gameObject.SetActive(false);
                 }
             }

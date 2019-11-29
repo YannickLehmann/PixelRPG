@@ -70,13 +70,11 @@ public abstract class WeaponScript : MonoBehaviour
         {
             if (weaponInterface.isUsed)
             {
-                
                 this.GetComponent<SpriteRenderer>().sprite = weapon.sprite;
                 weaponInterface.isUsed = false;
             }
         }
     }
-
 
     private void OnDisable()
     {

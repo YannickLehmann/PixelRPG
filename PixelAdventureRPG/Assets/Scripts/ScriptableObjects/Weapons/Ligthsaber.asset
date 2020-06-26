@@ -20,4 +20,4 @@ MonoBehaviour:
   damage: 0.4
   rotation: {x: 0, y: 0, z: 0}
   quantity: 1
-  weaponType: 0
+  tooltip: 

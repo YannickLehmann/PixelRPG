@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286f572d651579541b8c243ab3a1ca17, type: 3}
+  m_Name: ChainSaw
+  m_EditorClassIdentifier: 
+  weaponNamme: ChainSaw
+  animController: {fileID: 9100000, guid: a1c997755d47f8c439e0f7e086b22965, type: 2}
+  sprite: {fileID: 21300002, guid: eb770f8ae92e4ed4c92397f51447ad28, type: 3}
+  cooldown: 4
+  attakTime: 3
+  damage: 0.3
+  rotation: {x: 0, y: 0, z: 0}
+  quantity: 1
+  tooltip: 

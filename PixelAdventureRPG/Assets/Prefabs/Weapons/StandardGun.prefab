@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 494288572}
   - component: {fileID: 494288567}
   - component: {fileID: 494288568}
+  - component: {fileID: 3479196655180510001}
+  - component: {fileID: 4641538186029720557}
   m_Layer: 13
   m_Name: StandardGun
   m_TagString: Weapon
@@ -69,9 +71,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 44088829
-  m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingLayerID: -200660229
+  m_SortingLayer: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300002, guid: 3d12b7324ade33741b90b82f4ae83afd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -120,6 +122,10 @@ MonoBehaviour:
   mAttaking: 0
   isUsed: 0
   weaponRaotation: {x: 0, y: 0, z: 0}
+  defaultSprite: {fileID: 0}
+  restAmount: 0
+  mTooltip: empty
+  mDamage: 0
 --- !u!114 &494288568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +149,31 @@ MonoBehaviour:
   ammoPrefab: {fileID: 1705031646094819299, guid: 2be1bcb6981915a45830e027dd1fc83e,
     type: 3}
   weaponVelocity: 5
+--- !u!114 &3479196655180510001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494288565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd7d0ec3b887c8f4c94f2bc78234f4ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4641538186029720557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494288565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81a8b4ae367cab444b256f3a2d5eac46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 3
 --- !u!1 &915177129241730882
 GameObject:
   m_ObjectHideFlags: 0

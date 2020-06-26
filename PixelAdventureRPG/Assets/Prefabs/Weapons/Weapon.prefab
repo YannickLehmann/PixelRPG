@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 44088829
-  m_SortingLayer: 5
+  m_SortingLayerID: -200660229
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d8d286d2f4712ae40b3301ee69c2275e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -119,6 +119,10 @@ MonoBehaviour:
   animator: {fileID: 0}
   useable: 1
   attaking: 0
+  player: {fileID: 0}
+  movementController: {fileID: 0}
+  effectContainer: {fileID: 0}
+  weaponInterface: {fileID: 0}
 --- !u!61 &4190727214285901326
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -135,7 +139,7 @@ BoxCollider2D:
   m_Offset: {x: 0.5, y: 0.0013941005}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.0015873228, y: 0.43968242}
+    pivot: {x: 0.3340405, y: 0.3440985}
     oldSize: {x: 0.4375, y: 0.21875}
     newSize: {x: 0.32, y: 0.16}
     adaptiveTilingThreshold: 0.5
@@ -161,6 +165,11 @@ MonoBehaviour:
   animator: {fileID: 0}
   useable: 1
   attaking: 0
+  player: {fileID: 0}
+  movementController: {fileID: 0}
+  effectContainer: {fileID: 0}
+  weaponInterface: {fileID: 0}
+  stabSpeed: 5
 --- !u!114 &7548345810451940853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +186,10 @@ MonoBehaviour:
   animator: {fileID: 0}
   useable: 1
   attaking: 0
+  player: {fileID: 0}
+  movementController: {fileID: 0}
+  effectContainer: {fileID: 0}
+  weaponInterface: {fileID: 0}
   ammoPrefab: {fileID: 1604656642502627918, guid: e8ac956cc77a66f4e857c8b018778ca1,
     type: 3}
   weaponVelocity: 2

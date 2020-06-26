@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class StandardBullet : MonoBehaviour
 {
     private bool collBool = false;
     public GameObject Effect;
+    public float speed = 10f;
 
     public void StartTravelBullet(Vector3 destination, float duration)
     {
@@ -30,8 +32,8 @@ public class StandardBullet : MonoBehaviour
         {
             // Time.deltaTime is the time elapsed since the last frame was drawn
             percentComplete += Time.deltaTime / duration;
-            transform.Translate(destination * Time.deltaTime *10, Space.World);
-            yield return null;
+            transform.Translate(destination * Time.fixedDeltaTime *speed, Space.World);
+            yield return new WaitForFixedUpdate(); ;
         }
 
         //deactivate when completet

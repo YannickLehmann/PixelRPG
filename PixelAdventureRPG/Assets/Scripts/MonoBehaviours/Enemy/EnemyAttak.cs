@@ -10,7 +10,7 @@ public class EnemyAttak : MonoBehaviour
     public float attakCooldown = 3f;
     public bool attaking = false;
     private bool attakable = true;
-    private float attakDuration = 0.5f;
+    public float attakDuration = 0.5f;
 
     // Start is called before the first frame update
     void Start()

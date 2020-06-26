@@ -98,7 +98,8 @@ public class Player : Character
         if (!movementController.dodging)
         {
             InstantiateBlood(position);
-            StartCoroutine(PlayerAffection());
+            StartCoroutine(PlayerAffection(damage));
+            this.GetComponent<Rigidbody2D>().AddForce((this.transform.position - position).normalized * damage);
             cameraShake.Shake(damage*6, damage*3, 0.2f);
             while (true)
         {
@@ -145,18 +146,20 @@ public class Player : Character
         return angle;
     }
 
-    private IEnumerator PlayerAffection()
+    private IEnumerator PlayerAffection(float damageAmount)
     {
-        anim.SetTrigger("Damaged");
+        //anim.SetTrigger("Damaged");
         IsInputEnabled = false;
-        yield return new WaitForFixedUpdate();
-
+        yield return new WaitForSeconds(damageAmount);
+        //yield return new WaitForFixedUpdate();
+         /*   
         while (anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerAffected"))
         {
 
 
             yield return new WaitForFixedUpdate();
         }
+        */
         IsInputEnabled = true;
     }
 

@@ -5,6 +5,7 @@ public abstract class Character : MonoBehaviour {
 
     public float maxHitPoints;
     public float startingHitPoints;
+    public SpriteRenderer heroSkin;
 
     public enum CharacterCategory
     {
@@ -32,9 +33,9 @@ public abstract class Character : MonoBehaviour {
 
     public virtual IEnumerator FlickerCharacter()
     {
-       
-        GetComponentInChildren<SpriteRenderer>().color = Color.red;
+
+        heroSkin.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        GetComponentInChildren<SpriteRenderer>().color = Color.white;
+        heroSkin.color = Color.white;
     }
 }

@@ -224,6 +224,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageInflicted: 1
   piercing: 0
+  enemyAmmo: 0
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!114 &6146162649708013745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 243448125}
+  speed: 10
 --- !u!58 &8013545450319638366
 CircleCollider2D:
   m_ObjectHideFlags: 0

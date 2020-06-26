@@ -50,6 +50,7 @@ public class WeaponPickupScript : MonoBehaviour
         weaponToPickUp.transform.SetParent(player.transform.GetChild(0));
         weaponToPickUp.transform.localPosition = Vector3.zero;
         weaponToPickUp.transform.localRotation = Quaternion.Euler(weaponToPickUp.GetComponent<WeaponInterface>().weaponRaotation);
+        weaponToPickUp.transform.localScale = Vector3.one;
         Destroy(this.gameObject.transform.parent.gameObject); //.SetActive(false);
     }
 

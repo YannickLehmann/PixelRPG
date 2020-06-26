@@ -323,9 +323,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 44088829
-  m_SortingLayer: 5
-  m_SortingOrder: 0
+  m_SortingLayerID: -200660229
+  m_SortingLayer: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300002, guid: 6914f7578f20f0a46b38efd80657857f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -392,7 +392,7 @@ BoxCollider2D:
   m_Offset: {x: 0.62, y: 0.0013941005}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.17630848, y: 0.5031939}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.1428572, y: 0.8214286}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
@@ -419,6 +419,11 @@ MonoBehaviour:
   mQuantity: 0
   mAttaking: 0
   isUsed: 0
+  weaponRaotation: {x: 0, y: 0, z: 0}
+  defaultSprite: {fileID: 0}
+  restAmount: 0
+  mTooltip: empty
+  mDamage: 0
 --- !u!60 &386359357
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -435,7 +440,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.17630848, y: 0.5031939}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.1428572, y: 0.8214286}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5

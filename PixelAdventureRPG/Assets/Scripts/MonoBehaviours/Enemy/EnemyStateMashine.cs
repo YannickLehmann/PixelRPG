@@ -9,6 +9,7 @@ public class EnemyStateMashine : MonoBehaviour
     public float attakDuration = 1f;
     public float attakCooldown = 2f;
     public float affectionDuration = 1f;
+    public bool attackChaser = false;
 
     private Rigidbody2D rb2D;
     private EnemyAIPatroling enemyAIPatrolingScript;
@@ -112,7 +113,10 @@ public class EnemyStateMashine : MonoBehaviour
                     anim.SetTrigger("Chasing");
                     break;
                 case (State.Attaking):
-                    enemyAIChasingScript.enabled = false;
+                    if (!attackChaser)
+                    {
+                        enemyAIChasingScript.enabled = false;
+                    }
                     enemyAIPatrolingScript.enabled = false;
                     StartCoroutine(AttakingState());
                     break;

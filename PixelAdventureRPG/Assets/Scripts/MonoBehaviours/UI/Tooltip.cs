@@ -30,6 +30,9 @@ public class Tooltip : MonoBehaviour
 
     private void ShowTooltip(string tooltipString)
     {
+        Vector2 localPoint;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.parent.GetComponent<RectTransform>(), Input.mousePosition, uiCamera, out localPoint);
+        transform.localPosition = localPoint;
         gameObject.SetActive(true);
 
         tooltipText.text = tooltipString;
